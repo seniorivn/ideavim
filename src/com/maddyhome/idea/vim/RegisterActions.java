@@ -366,7 +366,7 @@ public class RegisterActions {
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionColumn", Command.Type.MOTION, Command.FLAG_MOT_EXCLUSIVE,
                           new Shortcut('|'));
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionDown", Command.Type.MOTION, Command.FLAG_MOT_LINEWISE, new Shortcut[]{
-      new Shortcut('j'),
+      new Shortcut('t'), // j
       new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0)),
       new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_J, KeyEvent.CTRL_MASK)),
       new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_N, KeyEvent.CTRL_MASK)),
@@ -430,7 +430,7 @@ public class RegisterActions {
                           new Shortcut("g_"));
     parser
       .registerAction(KeyParser.MAPPING_NVO, "VimMotionLastScreenLine", Command.Type.MOTION, Command.FLAG_MOT_LINEWISE | Command.FLAG_SAVE_JUMP,
-                      new Shortcut('L'));
+                      new Shortcut('S'));       // L
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionLastScreenLineEnd", Command.Type.MOTION,
                           Command.FLAG_MOT_LINEWISE | Command.FLAG_SAVE_JUMP,
                           new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_PAGE_DOWN, KeyEvent.CTRL_MASK)));
@@ -443,7 +443,7 @@ public class RegisterActions {
                           new Shortcut('F'), Argument.Type.DIGRAPH);
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionLeftTillMatchChar", Command.Type.MOTION,
                           Command.FLAG_MOT_EXCLUSIVE | Command.FLAG_ALLOW_DIGRAPH,
-                          new Shortcut('T'), Argument.Type.DIGRAPH);
+                          new Shortcut('J'), Argument.Type.DIGRAPH);     // T
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionLeftWrap", Command.Type.MOTION, Command.FLAG_MOT_EXCLUSIVE, new Shortcut[]{
       new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_BACK_SPACE, 0)),
       new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_H, KeyEvent.CTRL_MASK))
@@ -460,7 +460,7 @@ public class RegisterActions {
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionPercentOrMatch", Command.Type.MOTION, Command.FLAG_SAVE_JUMP,
                           new Shortcut('%'));
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionRight", Command.Type.MOTION, Command.FLAG_MOT_EXCLUSIVE, new Shortcut[]{
-      new Shortcut('l'),
+      new Shortcut('s'),      // l
       new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0))
     });
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionRightMatchChar", Command.Type.MOTION,
@@ -468,7 +468,7 @@ public class RegisterActions {
                           new Shortcut('f'), Argument.Type.DIGRAPH);
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionRightTillMatchChar", Command.Type.MOTION,
                           Command.FLAG_MOT_INCLUSIVE | Command.FLAG_ALLOW_DIGRAPH,
-                          new Shortcut('t'), Argument.Type.DIGRAPH);
+                          new Shortcut('j'), Argument.Type.DIGRAPH);     // t
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionRightWrap", Command.Type.MOTION, Command.FLAG_MOT_EXCLUSIVE,
                           new Shortcut(' '));
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionScrollFirstScreenLine", Command.Type.OTHER_READONLY, new Shortcut[]{
@@ -530,7 +530,7 @@ public class RegisterActions {
       new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_UP, KeyEvent.SHIFT_MASK))
     });
     parser.registerAction(KeyParser.MAPPING_NVO, "VimMotionUp", Command.Type.MOTION, Command.FLAG_MOT_LINEWISE, new Shortcut[]{
-      new Shortcut('k'),
+      new Shortcut('n'),      // k
       new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_P, KeyEvent.CTRL_MASK)),
       new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0)),
     });
@@ -627,10 +627,10 @@ public class RegisterActions {
                           Command.FLAG_MOT_EXCLUSIVE | Command.FLAG_SEARCH_REV | Command.FLAG_SAVE_JUMP,
                           new Shortcut('?'), Argument.Type.EX_STRING);
     parser.registerAction(KeyParser.MAPPING_NVO, "VimSearchAgainNext", Command.Type.MOTION, Command.FLAG_MOT_EXCLUSIVE | Command.FLAG_SAVE_JUMP,
-                          new Shortcut('n'));
+                          new Shortcut('k'));     //n
     parser
       .registerAction(KeyParser.MAPPING_NVO, "VimSearchAgainPrevious", Command.Type.MOTION, Command.FLAG_MOT_EXCLUSIVE | Command.FLAG_SAVE_JUMP,
-                      new Shortcut('N'));
+                      new Shortcut('K'));           //N
     parser.registerAction(KeyParser.MAPPING_NVO, "VimExEntry", Command.Type.OTHER_READ_WRITE,
                           new Shortcut(':'));
     parser.registerAction(KeyParser.MAPPING_NVO, "VimSearchWholeWordForward", Command.Type.MOTION,
@@ -685,14 +685,14 @@ public class RegisterActions {
                           new Shortcut('r'), Argument.Type.DIGRAPH);
     parser
       .registerAction(KeyParser.MAPPING_NORMAL, "VimChangeCharacters", Command.Type.CHANGE, Command.FLAG_NO_REPEAT | Command.FLAG_MULTIKEY_UNDO,
-                      new Shortcut('s'));
+                      new Shortcut('l'));         // s
     parser
       .registerAction(KeyParser.MAPPING_NORMAL, "VimChangeEndOfLine", Command.Type.CHANGE, Command.FLAG_NO_REPEAT | Command.FLAG_MULTIKEY_UNDO,
                       new Shortcut('C'));
     parser.registerAction(KeyParser.MAPPING_NORMAL, "VimChangeLine", Command.Type.CHANGE,
                           Command.FLAG_NO_REPEAT | Command.FLAG_ALLOW_MID_COUNT | Command.FLAG_MULTIKEY_UNDO, new Shortcut[]{
         new Shortcut("cc"),
-        new Shortcut('S')
+        new Shortcut('L')             // S
       });
     parser.registerAction(KeyParser.MAPPING_NORMAL, "VimChangeNumberInc", Command.Type.CHANGE,
                           new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_A, KeyEvent.CTRL_MASK)));
@@ -713,7 +713,7 @@ public class RegisterActions {
     parser.registerAction(KeyParser.MAPPING_NORMAL, "VimDeleteJoinLines", Command.Type.DELETE,
                           new Shortcut("gJ"));
     parser.registerAction(KeyParser.MAPPING_NORMAL, "VimDeleteJoinLinesSpaces", Command.Type.DELETE,
-                          new Shortcut('J'));
+                          new Shortcut('T'));  // J
     parser.registerAction(KeyParser.MAPPING_NORMAL, "VimDeleteLine", Command.Type.DELETE, Command.FLAG_ALLOW_MID_COUNT,
                           new Shortcut("dd"));
     parser.registerAction(KeyParser.MAPPING_NORMAL, "VimDeleteMotion", Command.Type.DELETE, Command.FLAG_OP_PEND,
@@ -763,7 +763,7 @@ public class RegisterActions {
     parser.registerAction(KeyParser.MAPPING_NORMAL, "VimRepeatExCommand", Command.Type.OTHER_WRITABLE,
                           new Shortcut("@:"));
     parser.registerAction(KeyParser.MAPPING_NORMAL, "QuickJavaDoc", Command.Type.OTHER_READONLY,
-                          new Shortcut('K'));
+                          new Shortcut('N'));   // K
     parser.registerAction(KeyParser.MAPPING_NORMAL, "VimRedo", Command.Type.OTHER_WRITABLE,
                           new Shortcut(KeyStroke.getKeyStroke(KeyEvent.VK_R, KeyEvent.CTRL_MASK)));
     parser.registerAction(KeyParser.MAPPING_NORMAL, "VimUndo", Command.Type.OTHER_WRITABLE, new Shortcut[]{
@@ -841,14 +841,14 @@ public class RegisterActions {
                           new Shortcut('U'));
     parser.registerAction(KeyParser.MAPPING_VISUAL, "VimChangeVisual", Command.Type.CHANGE, Command.FLAG_MULTIKEY_UNDO, new Shortcut[]{
       new Shortcut('c'),
-      new Shortcut('s')
+      new Shortcut('l')      //s
     });
     parser.registerAction(KeyParser.MAPPING_VISUAL, "VimChangeVisualCharacter", Command.Type.CHANGE, Command.FLAG_ALLOW_DIGRAPH,
                           new Shortcut('r'), Argument.Type.DIGRAPH);
     parser.registerAction(KeyParser.MAPPING_VISUAL, "VimChangeVisualLines", Command.Type.CHANGE,
                           Command.FLAG_MOT_LINEWISE | Command.FLAG_MULTIKEY_UNDO, new Shortcut[]{
         new Shortcut('R'),
-        new Shortcut('S')
+        new Shortcut('L')            //S
       });
     parser.registerAction(KeyParser.MAPPING_VISUAL, "VimChangeVisualLinesEnd", Command.Type.CHANGE,
                           Command.FLAG_MOT_LINEWISE | Command.FLAG_MULTIKEY_UNDO, new Shortcut[]{
@@ -861,7 +861,7 @@ public class RegisterActions {
     parser.registerAction(KeyParser.MAPPING_VISUAL, "VimDeleteJoinVisualLines", Command.Type.DELETE,
                           new Shortcut("gJ"));
     parser.registerAction(KeyParser.MAPPING_VISUAL, "VimDeleteJoinVisualLinesSpaces", Command.Type.DELETE,
-                          new Shortcut('J'));
+                          new Shortcut('T'));      // J
     parser.registerAction(KeyParser.MAPPING_VISUAL, "VimDeleteVisual", Command.Type.DELETE, new Shortcut[]{
       new Shortcut('d'),
       new Shortcut('x'),
