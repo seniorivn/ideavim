@@ -1,6 +1,6 @@
-**this fork is only to make ideavim compatible with dvorak keys.**
-`hjkl` becomes `htns`
-**in mi .vimrc**
+**this fork is only to make ideavim compatible with dvorak keys.**  
+`hjkl` becomes `htns`  
+**in mi .vimrc**  
  noremap h h  
  noremap t j  
  noremap n k  
